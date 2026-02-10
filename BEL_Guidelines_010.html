@@ -177,7 +177,12 @@
     }
     .resource-link:hover { background: var(--uq-purple); color: var(--uq-white) !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(81,36,122,.18); }
 
-    .highlight-box {
+    
+/* ✅ Global fix: indent unordered lists inside highlight boxes */
+.highlight-box ul {
+    margin-left: 1.5rem;
+}
+.highlight-box {
       background: linear-gradient(135deg, rgba(253, 183, 26, 0.10) 0%, rgba(81, 36, 122, 0.10) 100%);
       border-left: 5px solid var(--uq-gold);
       padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;
@@ -843,7 +848,7 @@
             <li><strong>Corroboration:</strong> Work verified by trusted observers</li>
             
             
-            <li><strong>Interactive oral assessments</strong> - Students respond to structured or semi-structured questions in real-time scenario-based about a topic area that in an unscripted conversation interaction. See Question and prompt guide for interactive oral assessments.</li>
+            <li><strong>Interactive oral assessments</strong> - Students respond to structured or semi-structured questions in real-time scenario-based about a topic area that in an unscripted conversation interaction. <a href="IOA_guidelines.html">See Question and prompt guide for interactive oral assessments</a>.</li>
 			  <li><strong>Interactive and in-person simulations/ task demonstration</strong> - A scenario, role-play, demonstration in which students individually or in groups demonstrate a skill or speak to/apply knowledge from the course in real-time, under supervised conditions.</li>
             
           </ul>
@@ -862,7 +867,7 @@
           <h3>Question and prompt guide for interactive oral assessments (IOA)</h3>
           <p>Tips on conducting an IOA</p>
           <div class="resource-links" style="margin-top: 1rem;">
-            <a class="resource-link" href="../../../Downloads/IOA_guidelines.html">📋 IOA Guidelines</a>
+            <a class="resource-link" href="IOA_guidelines.html">📋 IOA Guidelines</a>
           </div>
         </div>
     </section>
