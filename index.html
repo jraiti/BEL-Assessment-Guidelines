@@ -898,6 +898,16 @@
             <p><strong>&nbsp;</strong></p>
             <p>By using hurdles only where necessary, communicating clearly, and supporting students to meet them, we can maintain high standards and foster positive student experiences.&nbsp;</p>	
            </div>
+	<p>&nbsp;</p>
+	<h2 style="font-family: 'Crimson Pro', serif; color: var(--uq-purple); margin-bottom: 1rem;">Hurdle Types</h2>
+	<div class="highlight-box" style="margin: 0;">           
+<p>Two common types of hurdles are used at UQ: &nbsp; </p>
+<ul><li><strong>Secure assessment hurdle</strong>, an identity-verified, supervised assessment that assures the student has completed the task unassisted or without unauthorised help and has reliably achieved the learning outcome/s being assessed.</li> 
+				<li><strong>Performance hurdle</strong>, requiring students to complete specified activities to a defined standard to achieve a specific grade in the course. This usually involves a student’s demonstration of a skill required before progression to the next level in a program, e.g., demonstrated language proficiency, working with equipment, handling animals before going on clinical placement, etc.</li> 
+
+</div>
+		  <p>&nbsp;</p>
+		<h2 style="font-family: 'Crimson Pro', serif; color: var(--uq-purple); margin-bottom: 1rem;">Assessment Hurdle Design Principles</h2>
 <div style="background: white; padding: 1.5rem; border-radius: 12px;">
         <ol class="ap-ol" aria-label="Hurdle Principles">
           <!-- 1 -->
@@ -972,36 +982,95 @@
                   </tr>
                 </table>
                 <a href="#ap-title" class="back-to-top">Back to top</a>
-              </div>
+              </div>		
+
+
             </details>
           </li>
 
-          
-            
-	<div class="two-column">
-		<div class="highlight-box" style="margin: 0;">
-            <p><strong>1. Critical Competency & Security:</strong> Add hurdles only when essential for learning outcomes or to securely assure professional competencies</p>
-            <p><strong>2. Reasonable Standards:</strong> Set achievable thresholds that demonstrate competency without unnecessary stress</p>
-            <p><strong>3. Clear Communication:</strong> Explicitly state hurdle requirements, rationale, and consequences in course profiles from day one</p>	
+        <h2 style="font-family: 'Crimson Pro', serif; color: var(--uq-purple); margin-bottom: 1rem;">Hurdles Best Practice Guidelines</h2>
+			<p>In BEL, hurdles are rarely used and must serve a genuine pedagogical purpose. Student experience is carefully considered to ensure students are not confronted with multiple high stakes (pass/fail) hurdles in multiple courses in any given semester. This means that hurdle decisions require a collaboration between the Program Convenor, Course Coordinator and DoTL. 
+</p>
+			<div style="background: white; padding: 1.5rem; border-radius: 12px;">
+        <!-- 1 -->
+        <details id="ap-1" class="ap-accordion">
+          <summary>Best Practice</summary>
+          <div class="ap-panel">
+            <p>● Hurdles directly relate to specific program and course learning outcome/s, and/or professional practice or accreditation</p>
+            <p>● The type of hurdle, and how it is applied, is communicated clearly to students in course profiles and course management systems, and in any guidelines, instructions and criteria sheets attached to the assessment item</p>
+            <p>● Consequences of not meeting hurdle requirements is made explicit to students via multiple avenues (including, but not limited to, course profiles, program information, BB sites, and in class) </p>
+            <p>● Competency hurdles, where possible, allow multiple attempts or supplementary assessment </p>
+            <p>● Hurdles are NOT used to compel attendance (exceptions being, e.g., compulsory placements, safety requirements, accreditation requirements) </p>
+            <p>● Hurdles are NOT used to limit access to learning materials, or constrain accessibility options </p>
+            <p>● Pass/Fail secure assessment hurdles are used sparingly</p>
+            <p>● Unless tied to professional accreditation, hurdles are discouraged for low-weighted assessments (less than 30%)</p>
+            <p>● Students at risk of failing a hurdle are identified early so they can be notified about their progression risk and better supported to meet the hurdle requirements</p>
+            <p>● Assessment-aligned hurdles are reviewed each semester/year to ensure they provide a fair measure of student learning</p>
+            <p>● Hurdles are applied programmatically where feasible, and evaluated through the course review/profile publication process</p>
+          </div>
+        </details>
+        
+        </details>
+
+        <!-- ===== Assessment Principles (Stacked full-width, numbered circles, back-to-top) ===== -->
+        <!-- Scoped styles for numbered circles and stacked layout -->
+        <style>
+        /* ===== Stacked full-width list with visible purple number circles ===== */
+        ol.ap-ol { list-style: none; padding: 0; margin: 0; counter-reset: ap-counter; }
+        ol.ap-ol > li {
+          counter-increment: ap-counter;
+          display: grid;
+          grid-template-columns: 40px 1fr; /* number circle + card */
+          gap: 12px;
+          align-items: start;
+          margin-bottom: 1.25rem;
+          width: 100%;
+        }
+        /* Purple circular number badge */
+        ol.ap-ol > li::before {
+          content: counter(ap-counter);
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          border-radius: 50%;
+          background: var(--uq-purple);
+          color: var(--uq-white);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          line-height: 1;
+          margin-top: 4px; /* aligns top with card header */
+          box-shadow: 0 2px 6px rgba(81,36,122,.18);
+        }
+        details.ap-accordion {
+          width: 100%;
+          border: 1px solid var(--bel-divider);
+          border-radius: 12px;
+          background: #fff;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+        }
+        details.ap-accordion > summary {
+          padding: 14px 18px;
+          font-weight: 700;
+          background: var(--uq-cloud);
+          color: var(--uq-purple);
+          cursor: pointer;
+          border-radius: 12px;
+          list-style: none;
+        }
+        details.ap-accordion[open] > summary {
+          border-bottom: 1px solid var(--bel-divider);
+          border-radius: 12px 12px 0 0;
+        }
+        .ap-panel { padding: 1rem 1.2rem; overflow-x: auto; }
+        .ap-panel table { width: 100%; border-collapse: collapse; min-width: 520px; }
+        .ap-panel th, .ap-panel td { border: 1px solid #ddd; padding: 10px; vertical-align: top; text-align: left; }
+        .uq-header { background: #4B2577; color: #fff; font-weight: 700; }
+        </style>
+
       </div>
-		<div class="resource-card">
-          <h3>Faculty‑Specific Hurdle <br> Guidance</h3>
-          <p>Tips on conducting an IOA</p>
-          <div class="resource-links" style="margin-top: 1rem;">
-            <a class="resource-link1" href="https://itali.uq.edu.au/teaching-guidance/ai-teacher-hub/designing-and-securing-assessment" target="_blank" rel="noopener"><span>📋</span> Hurdle Design Principles</a>
-          </div>
-        </div>
-	</div>
-	<div class="resource-card">
-          <h3>Faculty‑Specific Hurdle <br> Guidance</h3>
-          <p>Tips on conducting an IOA</p>
-          <div class="resource-links" style="margin-top: 1rem;">
-            <a class="resource-link1" href="https://itali.uq.edu.au/teaching-guidance/ai-teacher-hub/designing-and-securing-assessment" target="_blank" rel="noopener"><span>📋</span> Hurdle Design Principles</a>
-          </div>
-</div>
-	
-    <!-- ===== AI in Teaching & Learning ===== -->
-    <section id="ai-resources" class="section">
+	<section id="ai-resources" class="section">
       <div class="section-header">
         <span class="section-icon">🤖</span>
         <div>
@@ -1090,45 +1159,7 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== Teaching & Learning Guidance ===== -->
-    <section id="teaching-guidance" class="section">
-      <div class="section-header">
-        <span class="section-icon">📚</span>
-        <div>
-          <h2 class="section-title">BEL Assessment Conversations</h2>
-          <p class="section-subtitle"></p>
-        </div>
-      </div>
-
-      <div class="highlight-box">
-        <h4>🎓Add title</h4>
-        <p>add descriptor</p>
-        <div class="resource-links" style="margin-top: 1rem;">
-          <a class="resource-link" href="https://itali.uq.edu.au/advancing-teaching/teaching-career-development/professional-learning-programs/teaching-practice" target="_blank" rel="noopener">Link #1</a>
-          <a class="resource-link" href="https://itali.uq.edu.au/advancing-teaching/teaching-career-development/professional-learning-programs/curriculum-design-uq" target="_blank" rel="noopener">Link #2</a>
-          <a class="resource-link" href="https://itali.uq.edu.au/events/workshops" target="_blank" rel="noopener">Link #3</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Additional Resources ===== -->
-    
-<div class="resource-card">
-          <h3>Assessment Ideas Factory</h3>
-          <p>Browse innovative assessment examples across disciplines; filter by class size, security level, and assessment type.</p>
-          <div class="resource-links" style="margin-top: 1rem;">
-            <a class="resource-link" href="https://aif.itali.uq.edu.au/" target="_blank" rel="noopener"><span>💡</span> Browse Ideas</a>
-            <a class="resource-link" href="https://itali.uq.edu.au/teaching-guidance/assessment/designing-assessment/authentic-assessment" target="_blank" rel="noopener"><span>🎯</span> Authentic Assessment</a>
-          </div>
-          <span class="tag new">Curated Examples</span>
-</div>
-    <!-- ===== Professional Development & Events ===== -->
-    
-
-    <!-- ===== Contact / Support ===== -->
-    
-<section id="support" class="contact-section">
+	<section id="support" class="contact-section">
   <h2>Get Support &amp; Stay Connected</h2>
   <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid rgba(255,255,255,0.2);">
     <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Assessment  Support</h3>
@@ -1140,13 +1171,7 @@
   </div>
   <div class="contact-grid"></div>
 </section>
-
-
-    <div class="last-updated">
-      Last updated: 10 February 2026<br/>
-      <span style="margin-top: .5rem; display: block;"></span>
-    </div>
-  </div><!-- /.container -->
+	<!-- /.container -->
 
   <!-- UQ Footer -->
   <footer class="uq-footer" role="contentinfo">
