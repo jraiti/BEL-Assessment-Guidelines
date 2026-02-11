@@ -3,163 +3,379 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BEL IOA Guidelines — Faculty of Business, Economics & Law</title>
+  <title>Faculty of Business, Economics & Law — Assessment Guidelines</title>
 
   <!-- Type -->
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
     /* =========================================================
-       UQ / BEL — Theme tokens (matches BEL_Guidelines_006.html)
+       UQ BEL - Theme Tokens
        ========================================================= */
-    :root{
+    :root {
       /* UQ masterbrand foundation */
-      --uq-purple:#51247A; /* Primary */
-      --uq-gold:#FDB71A;   /* Accent (sparingly) */
-      --uq-ink:#1A1A1A;    /* Body */
-      --uq-stone:#6A6A6A;  /* Muted */
-      --uq-cloud:#F5F3F7;  /* Light panels */
-      --uq-white:#FFFFFF;
+      --uq-purple: #51247A; /* Primary */
+      --uq-gold: #FDB71A;   /* Accent (sparingly) */
+      --uq-ink: #1A1A1A;    /* Body text */
+      --uq-stone: #6A6A6A;  /* Muted text */
+      --uq-cloud: #F5F3F7;  /* Light panels */
+      --uq-white: #FFFFFF;
 
-      /* BEL refinements */
-      --bel-divider:#E5E1EC;
-      --bel-hover:#3E1C5C;
-      --bel-link:#2C3E50;
-      --bel-success:#0B7D56;
+      /* BEL-focused refinements */
+      --bel-divider: #E5E1EC; /* Subtle borders */
+      --bel-hover: #3E1C5C;   /* Darker purple hover */
+      --bel-link: #2C3E50;    /* Neutral link colour */
+      --bel-success: #0B7D56; /* Success */
+      --bel-warning: #C77D0A; /* Corporate warning tone */
 
-      /* Components */
-      --page-bg: linear-gradient(180deg,#FFFFFF 0%,#FAFAFC 100%);
+      /* Component tokens */
+      --page-bg: linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%);
       --hero-bg: linear-gradient(135deg, var(--uq-purple) 0%, #3E1C5C 100%);
-      --panel-shadow: 0 4px 18px rgba(81,36,122,0.10);
+      --panel-shadow: 0 4px 18px rgba(81, 36, 122, 0.10);
     }
 
     /* =========================================================
        Base
        ========================================================= */
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Work Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-      color:var(--uq-ink); background:var(--page-bg); line-height:1.6; min-height:100vh;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--uq-ink);
+      background: var(--page-bg);
+      line-height: 1.6;
+      min-height: 100vh;
     }
-    a, a:visited { color: var(--uq-purple); text-decoration:none }
-    a:hover{color:var(--uq-purple); text-decoration:underline}
-    .sr-only{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden}
+
+    a { color: var(--bel-link); text-decoration: none; }
+    a:hover { color: var(--uq-purple); text-decoration: underline; }
 
     /* =========================================================
-       UQ Masthead (as per reference page)
+       UQ Masthead (Global)
        ========================================================= */
-    .uq-masthead{background:var(--uq-white); border-bottom:1px solid var(--bel-divider)}
-    .uq-masthead__inner{
-      max-width:1400px; margin:0 auto; padding:.75rem 2rem;
-      display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:1rem;
+    .uq-masthead { background: var(--uq-white); border-bottom: 1px solid var(--bel-divider); }
+    .uq-masthead__inner {
+      max-width: 1400px; margin: 0 auto; padding: .75rem 2rem;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem;
     }
-    .uq-logo{display:inline-flex; align-items:center}
-    .uq-logo svg{height:36px; width:auto; display:block}
-    .uq-site-id{display:flex; flex-direction:column; line-height:1.2}
-    .uq-site-id__faculty{font-weight:700; color:var(--uq-purple)}
-    .uq-site-id__hub{font-weight:500; color:var(--uq-ink); opacity:.9}
-    .uq-utility a, a:visited { color: var(--uq-purple); text-decoration:none }
-    @media (max-width:768px){
-      .uq-masthead__inner{grid-template-columns:1fr; gap:.5rem}
-      .uq-utility{display:flex; flex-wrap:wrap; gap:.75rem}
-      .uq-utility a, a:visited { color: var(--uq-purple); text-decoration:none }
+    .uq-logo { display: inline-flex; align-items: center; }
+    .uq-logo img, .uq-logo svg { height: 36px; width: auto; display: block; }
+    .uq-site-id { display:flex; flex-direction: column; line-height: 1.2; }
+    .uq-site-id__faculty { font-weight: 700; color: var(--uq-purple); }
+    .uq-site-id__hub { font-weight: 500; color: var(--uq-ink); opacity: .9; }
+    .uq-utility a { margin-left: 1rem; font-size: .95rem; color: var(--bel-link); }
+    .uq-utility a:hover { color: var(--uq-purple); text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .uq-masthead__inner { grid-template-columns: 1fr; gap: .5rem; }
+      .uq-utility { display:flex; flex-wrap:wrap; gap:.75rem; }
+      .uq-utility a { margin-left: 0; }
     }
 
     /* =========================================================
        Hero
        ========================================================= */
-    .hero-header{
-      background:var(--hero-bg); color:var(--uq-white);
-      padding:4rem 2rem 3rem; text-align:center; position:relative; overflow:hidden;
-      box-shadow:0 8px 28px rgba(81,36,122,.18);
+    .hero-header {
+      background: var(--hero-bg); color: var(--uq-white);
+      padding: 4rem 2rem 3rem; text-align: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 8px 28px rgba(81, 36, 122, .18);
     }
-    .hero-header::before{
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(circle at 20% 50%, rgba(253,183,26,0.12) 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, rgba(81,36,122,0.18) 0%, transparent 50%);
-      animation:float 20s ease-in-out infinite;
+    .hero-header::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(253, 183, 26, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(81, 36, 122, 0.18) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
     }
-    @keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)}}
-    .hero-content{position:relative; z-index:1; max-width:1200px; margin:0 auto}
-    .hero-title{
-      font-family:'Crimson Pro', Georgia, serif;
-      font-size:clamp(2.3rem,5vw,3.5rem); font-weight:700; letter-spacing:-0.01em; margin-bottom:.35rem;
-      animation:fadeInUp .8s ease-out;
+    @keyframes float { 0%,100% {transform:translateY(0)} 50% {transform:translateY(-14px)} }
+    .hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+    .hero-title {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.01em;
+      animation: fadeInUp .8s ease-out;
     }
-    .hero-subtitle{
-      font-size:clamp(1rem,2vw,1.25rem); opacity:.95; margin-bottom:1.25rem;
-      animation:fadeInUp .8s ease-out .15s both;
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 400; opacity: .95;
+      max-width: 800px; margin: 0 auto 2rem; animation: fadeInUp .8s ease-out .2s both;
     }
-    .hero-badge{
-      display:inline-block; background:rgba(253,183,26,.18); color:var(--uq-gold);
-      padding:.45rem 1.25rem; border-radius:2rem; font-size:.9rem; font-weight:700; border:2px solid rgba(253,183,26,.28);
-      animation:fadeInUp .8s ease-out .3s both;
+    .hero-badge {
+      display: inline-block; background: rgba(253, 183, 26, .18);
+      color: var(--uq-gold); padding: .5rem 1.5rem; border-radius: 2rem;
+      font-size: .9rem; font-weight: 600; margin-bottom: 1.5rem;
+      border: 2px solid rgba(253, 183, 26, .28); animation: fadeInUp .8s ease-out .4s both;
     }
-    @keyframes fadeInUp{from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)}}
+    @keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+
+    /* ✅ FIX: Make all mailto links in the hero high contrast (no class needed) */
+    .hero-header a[href^="mailto:"] {
+      color: var(--uq-gold);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .hero-header a[href^="mailto:"]:hover,
+    .hero-header a[href^="mailto:"]:focus {
+      color: var(--uq-white);
+      text-decoration: underline;
+    }
 
     /* =========================================================
        Layout containers
        ========================================================= */
-    .container{max-width:1400px; margin:0 auto; padding:2rem}
-    .section{
-      background:var(--uq-white); border-radius:20px; padding:2.25rem; margin-bottom:2rem;
-      box-shadow:var(--panel-shadow); border:1px solid var(--bel-divider); animation:fadeIn .6s ease-out;
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .quick-links {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+      margin: -3rem auto 3rem; position: relative; z-index: 2; max-width: 1200px; padding: 0 2rem;
     }
-    @keyframes fadeIn{from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)}}
-    .section-header{display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:3px solid var(--uq-cloud)}
-    .section-icon{font-size:2rem}
-    .section-title{font-family:'Crimson Pro', serif; font-size:2rem; font-weight:700; color:var(--uq-purple); letter-spacing:-.01em}
-    .section-subtitle{font-size:1.05rem; color:var(--uq-stone); margin-top:.2rem}
 
-    /* Cards & utility */
-    .highlight-box{background:linear-gradient(135deg, rgba(253,183,26,.10) 0%, rgba(81,36,122,.10) 100%); border-left:5px solid var(--uq-gold); padding:1rem 1.25rem; border-radius:12px; margin:1rem 0}
-    .tag{display:inline-block; background:var(--uq-purple); color:#fff; padding:.28rem .75rem; border-radius:6px; font-size:.83rem; font-weight:700; margin:.2rem}
-    .tag.new{background:var(--bel-success)}
-    .info-pill{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .9rem; background:rgba(81,36,122,.08); color:var(--uq-purple); border-radius:20px; font-size:.9rem; font-weight:700; margin:.35rem .35rem .35rem 0; border:1px solid rgba(81,36,122,.20)}
-
-    /* Details accordion (native, accessible) */
-    details.ap-accordion{width:100%; border:1px solid var(--bel-divider); border-radius:12px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.08); margin:.9rem 0}
-    details.ap-accordion > summary{padding:14px 18px; font-weight:700; background:var(--uq-cloud); color:var(--uq-purple); cursor:pointer; border-radius:12px; list-style:none}
-    details.ap-accordion[open] > summary{border-bottom:1px solid var(--bel-divider); border-radius:12px 12px 0 0}
-    details.ap-accordion > summary::after{content:"▶"; float:right; transition:transform .2s; color:var(--uq-purple)}
-    details.ap-accordion[open] > summary::after{transform:rotate(90deg)}
-    .accordion-body{padding:1rem 1.2rem}
-
-    /* Tables */
-    .ap-panel{padding:1rem 0; overflow-x:auto}
-    .ap-panel table{width:100%; border-collapse:collapse; min-width:520px}
-    .ap-panel th,.ap-panel td{border:1px solid #ddd; padding:10px; vertical-align:top; text-align:left}
-    .uq-header{background:#4B2577; color:#fff; font-weight:700}
-
-    /* Two-column */
-    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:.5rem}
-    @media (max-width:968px){.two-col{grid-template-columns:1fr}}
-
-    /* Back to top */
-    .back-to-top{display:inline-flex; align-items:center; gap:.35rem; font-weight:700; color:var(--uq-purple); margin-top:.75rem}
-    .back-to-top::before{content:"↑"; font-weight:700}
-
-    /* Footer */
-    .uq-footer{background:#111; color:#EEE; margin-top:3rem}
-    .uq-footer__inner{max-width:1400px; margin:0 auto; padding:2rem}
-    .uq-ack{font-size:.95rem; opacity:.9; margin-bottom:1rem}
-    .uq-footer-nav{display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; margin:1rem 0}
-    .uq-footer-nav a, a:visited { color: var(--uq-purple); text-decoration:none }
-    .uq-footer-nav a:hover{color:var(--uq-gold)}
-    .uq-meta, a:visited { color: var(--uq-purple); text-decoration:none }
-
-    /* Floating back-to-top */
-    #floating-back-to-top{
-      position:fixed; bottom:32px; right:32px; background:var(--uq-purple); color:white;
-      padding:14px 18px; border-radius:50px; font-weight:700; font-size:0.95rem;
-      box-shadow:0 6px 16px rgba(81,36,122,0.25); cursor:pointer; opacity:0; transform:translateY(20px);
-      pointer-events:none; transition:opacity .3s, transform .3s; z-index:999;
+    /* =========================================================
+       Cards & Links
+       ========================================================= */
+    .quick-link-card {
+      background: var(--uq-white); border-radius: 16px; padding: 2rem; text-decoration: none;
+      color: var(--uq-ink); box-shadow: var(--panel-shadow);
+      transition: all .3s ease; border: 1px solid var(--bel-divider); position: relative; overflow: hidden;
     }
-    #floating-back-to-top.visible{opacity:1; transform:translateY(0); pointer-events:auto}
-    #floating-back-to-top:hover{background:var(--bel-hover)}
-  .h3 {
+    .quick-link-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--uq-purple); transform: scaleY(0); transition: transform .3s ease; transform-origin: bottom;
+    }
+    .quick-link-card:hover { transform: translateY(-6px); border-color: var(--uq-purple); box-shadow: 0 12px 30px rgba(81,36,122,.14); }
+    .quick-link-card:hover::before { transform: scaleY(1); transform-origin: top; }
+    .quick-link-icon { font-size: 2.2rem; margin-bottom: .75rem; display: block; }
+    .quick-link-title { font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: .35rem; color: var(--uq-purple); }
+    .quick-link-desc { font-size: .95rem; color: var(--uq-stone); line-height: 1.5; }
+
+    .section {
+      background: var(--uq-white); border-radius: 20px; padding: 3rem; margin-bottom: 2rem;
+      box-shadow: var(--panel-shadow); border: 1px solid var(--bel-divider); animation: fadeIn .6s ease-out;
+    }
+    @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+
+    .section-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.25rem;
+      border-bottom: 3px solid var(--uq-cloud);
+    }
+    .section-icon { font-size: 2.2rem; flex-shrink: 0; }
+    .section-title { font-family: 'Crimson Pro', serif; font-size: 2.1rem; font-weight: 700; color: var(--uq-purple); letter-spacing: -0.01em; }
+    .section-subtitle { font-size: 1.1rem; color: var(--uq-stone); margin-top: .25rem; }
+
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .resource-card {
+      background: var(--uq-cloud); padding: 1.8rem; border-radius: 12px; transition: all .3s ease;
+      border: 1px solid var(--bel-divider); position: relative;
+    }
+    .resource-card:hover { background: var(--uq-white); border-color: var(--uq-purple); transform: translateX(6px); box-shadow: 0 8px 22px rgba(81,36,122,.14); }
+    .resource-card h3 { font-family: 'Crimson Pro', serif; font-size: 1.35rem; color: var(--uq-purple); margin-bottom: .7rem; font-weight: 700; }
+    .resource-card p { color: var(--uq-ink); font-size: .95rem; line-height: 1.6; margin-bottom: 1rem; }
+
+    .resource-links { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem; }
+    .resource-link {
+      display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem;
+      background: var(--uq-white); color: var(--uq-purple) !important; border-radius: 8px; font-size: .9rem; font-weight: 600;
+      transition: all .2s ease; border: 2px solid var(--uq-purple);
+    }
+    .resource-link:hover { background: var(--uq-purple); color: var(--uq-white) !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(81,36,122,.18); }
+
+    
+/* ✅ Global fix: indent unordered lists inside highlight boxes */
+.highlight-box ul {
+    margin-left: 1.5rem;
 }
-  </style>
+.highlight-box {
+      background: linear-gradient(135deg, rgba(253, 183, 26, 0.10) 0%, rgba(81, 36, 122, 0.10) 100%);
+      border-left: 5px solid var(--uq-gold);
+      padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;
+    }
+    .highlight-box h4 { font-family: 'Crimson Pro', serif; font-size: 1.25rem; color: var(--uq-purple); margin-bottom: .8rem; font-weight: 700; }
+
+    .tag {
+      display: inline-block; background: var(--uq-purple); color: var(--uq-white);
+      padding: .3rem .8rem; border-radius: 6px; font-size: .85rem; font-weight: 600; margin: .25rem;
+    }
+    .tag.new { background: var(--bel-success); }
+    .tag.important { background: var(--uq-gold); color: #3A2A00; }
+    .tag.ai { background: var(--uq-purple); }
+
+    .info-pill {
+      display: inline-flex; align-items: center; gap: .5rem; padding: .4rem 1rem;
+      background: rgba(81,36,122,.08); color: var(--uq-purple); border-radius: 20px; font-size: .9rem; font-weight: 600;
+      margin: .5rem .5rem .5rem 0; border: 1px solid rgba(81,36,122,.20);
+    }
+
+    .accordion { border: 1px solid var(--bel-divider); border-radius: 12px; overflow: hidden; margin: 1rem 0; }
+    .accordion-item { border-bottom: 1px solid var(--bel-divider); }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-header {
+      background: var(--uq-cloud); padding: 1.25rem 1.5rem; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; transition: all .3s ease;
+      font-weight: 600; font-size: 1.05rem; color: var(--uq-purple);
+    }
+    .accordion-header:hover { background: rgba(81,36,122,.08); }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height .3s ease; background: var(--uq-white); }
+    .accordion-content.active { max-height: 2000px; }
+    .accordion-body { padding: 1.5rem; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: .8rem 0 .8rem 2rem; position: relative; border-bottom: 1px solid var(--bel-divider); }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--bel-success); font-weight: bold; font-size: 1.2rem; }
+
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    @media (max-width: 968px) { .two-column { grid-template-columns: 1fr; } }
+
+    .contact-section {
+      background: var(--hero-bg); color: var(--uq-white); padding: 3rem; border-radius: 20px; margin-top: 3rem; text-align: center;
+    }
+    .contact-section h2 { font-family: 'Crimson Pro', serif; font-size: 2.3rem; margin-bottom: 1rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .contact-card {
+      background: rgba(255,255,255,.10); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,.20);
+    }
+    .contact-card h3 { font-size: 1.25rem; margin-bottom: .8rem; }
+    .contact-card a { color: var(--uq-gold); text-decoration: none; font-weight: 600; }
+    .contact-card a:hover { color: var(--uq-white); text-decoration: underline; }
+
+    .last-updated {
+      text-align: center; color: var(--uq-stone); font-size: .9rem; margin: 3rem 0 1rem; font-style: italic;
+    }
+    .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+
+    @media (max-width: 768px) {
+      .hero-header { padding: 3rem 1rem 2rem; }
+      .section { padding: 2rem 1.5rem; }
+      .resource-grid { grid-template-columns: 1fr; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* =========================================================
+       Optional BEL quick band (if desired)
+       ========================================================= */
+    .bel-band { background: var(--uq-purple); }
+    .bel-band__inner { max-width: 1200px; margin: 0 auto; padding: .6rem 2rem; display:flex; flex-wrap:wrap; gap:1rem; }
+    .bel-band__inner a { color: var(--uq-white); font-weight: 600; opacity:.95; }
+    .bel-band__inner a:hover { opacity: 1; text-decoration: underline; }
+
+    /* =========================================================
+       UQ Footer
+       ========================================================= */
+    .uq-footer { background: #111; color: #EEE; margin-top: 3rem; }
+    .uq-footer__inner { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .uq-ack { font-size: .95rem; opacity: .9; margin-bottom: 1rem; }
+    .uq-footer-nav { display:flex; flex-wrap: wrap; gap: .75rem 1.25rem; margin: 1rem 0; }
+    .uq-footer-nav a { color: #EEE; text-decoration: none; font-size: .95rem; }
+    .uq-footer-nav a:hover { color: var(--uq-gold); }
+    .uq-meta { font-size: .9rem; opacity: .8; }
+
+    /* Arrow icon for <details> summary */
+    details.ap-accordion > summary::after {
+      content: "▶";
+      font-size: 1rem;
+      float: right;
+      transition: transform 0.2s ease;
+      color: var(--uq-purple);
+    }
+    details.ap-accordion[open] > summary::after {
+      transform: rotate(90deg);
+    }
+
+    /* Link states (global) */
+    a:link { color: #51247A; }
+    a:visited { color: #551A8B; }
+    a:hover, a:focus { color: #6A3BAE; text-decoration: underline; }
+    a:active { color: #51247A; }
+
+    /* Back-to-top link (inline links inside panels) */
+    .back-to-top {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-weight: 600; color: var(--uq-purple);
+      margin-top: 1rem;
+    }
+    .back-to-top:hover { color: var(--bel-hover); }
+    .back-to-top::before { content: "↑"; font-weight: 700; }
+
+    /* ===== Floating Back to Top Button ===== */
+    #floating-back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--uq-purple);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 6px 16px rgba(81,36,122,0.25);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 999;
+    }
+    #floating-back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #floating-back-to-top:hover { background: var(--bel-hover); }
+    #floating-back-to-top:focus {
+      outline: 3px solid var(--uq-gold);
+      outline-offset: 3px;
+    }
+
+    .resource-link1 {
+      display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem;
+      background: var(--uq-white); color: var(--uq-purple); border-radius: 8px; font-size: .9rem; font-weight: 600;
+      transition: all .2s ease; border: 2px solid var(--uq-purple);
+    }
+    .resource-links1 { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem; }
+  
+/* --- Support section fixes --- */
+.contact-section .resource-links { justify-content: center; }
+/* Ensure the button label remains visible even after the link is selected (visited/active) */
+.contact-section a.resource-link,
+.contact-section a.resource-link:link,
+.contact-section a.resource-link:visited {
+  color: var(--uq-purple);
+}
+.contact-section a.resource-link:hover,
+.contact-section a.resource-link:focus,
+.contact-section a.resource-link:active {
+  color: var(--uq-white);
+}
+
+/* Yellow support button (UQ gold) */
+.contact-section .resource-link {
+  background: var(--uq-gold) !important;
+  color: #3A2A00 !important; /* dark text for contrast on gold */
+  border-color: var(--uq-gold) !important;
+}
+.contact-section .resource-link:hover,
+.contact-section .resource-link:focus {
+  background: #E6A800 !important; /* darker gold on hover */
+  color: #3A2A00 !important;
+}
+.contact-section .resource-link:hover,
+.contact-section .resource-link:focus {
+  background: var(--bel-hover) !important;
+  color: var(--uq-white) !important;
+}
+	  p.indented {
+  margin-left: 1.5em;   /* whole paragraph moves right */
+}
+
+</style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-60ZZ4GH20Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-60ZZ4GH20Y');
+  </script>
 </head>
 <body>
   <div id="top" class="sr-only" aria-hidden="true">Top</div>
@@ -180,7 +396,7 @@
       <nav class="uq-utility" aria-label="Utility">
         <a href="#support">Contact</a>
         <a href="https://bel.uq.edu.au" target="_blank" rel="noopener">BEL website</a>
-        <a href="https://about.uq.edu.au/faculties-institutes/bel" target="_blank" rel="noopener">About BEL</a>
+        <a href="https://about.uq.edu.au/faculties-institutes/bel" target="_blank" rel="noopener">&nbsp;</a>
       </nav>
     </div>
   </header>
@@ -216,10 +432,10 @@
       <div class="highlight-box">
         <h4>🎯 Policy Alignment</h4>
         <p>From a security perspective, oral components and real‑time demonstrations are recognised secure strategies. Every course must include at least one secure assessment item. IOAs can contribute to that requirement when designed and conducted under appropriate conditions.</p>
-        <span class="tag">Assessment Security</span>
-        <span class="info-pill">PPL 3.10.02 (summary)</span>
-      </div>
+             </div>
+		
     </section>
+	  
 
     <!-- Designing IOAs -->
 <section class="section" aria-labelledby="design-title">
@@ -230,41 +446,119 @@
           <p class="section-subtitle">Align to outcomes, criteria, and evidence of learning</p>
         </div>
       </div>
+<div style="background: white; padding: 1.5rem; border-radius: 12px;">
+        
+          <!-- 1 -->
+          
+            <details id="ap-1" class="ap-accordion">
+              <summary>Identify outcomes and criteria</summary>
+              <div class="ap-panel">
+                
+ <p>● Identify which course learning outcomes the IOA will assess (typically reasoning, application/synthesis, communication).</p>
+ <p>● Draft assessment criteria aligned to the outcomes and the IOA’s authentic context (e.g., client briefing, viva, design review).</p>
+ <p>● Where defending a pre‑submitted artefact, mark the artefact first and prepare questions based on it.</p>                
+              </div>
+            </details>
+          
 
-      <details class="ap-accordion" open>
-        <summary>Identify outcomes and criteria</summary>
-        <div class="accordion-body">
-          <ul style="margin-left:1.2rem; line-height:1.9;">
-            <li>Identify which course learning outcomes the IOA will assess (typically reasoning, application/synthesis, communication).</li>
-            <li>Draft assessment criteria aligned to the outcomes and the IOA’s authentic context (e.g., client briefing, viva, design review).</li>
-            <li>Where defending a pre‑submitted artefact, mark the artefact first and prepare questions based on it.</li>
-          </ul>
-        </div>
-      </details>
+          <!-- 2 -->
+          
+            <details id="ap-2" class="ap-accordion">
+              <summary>Format &amp; logistics</summary>
+              <div class="ap-panel">
+                <p>Choose a format consistent with disciplinary norms and integrity aims:</p>     
 
-      <details class="ap-accordion">
-        <summary>Format & logistics</summary>
-        <div class="accordion-body">
-          <p style="margin-bottom:.6rem">Choose a format consistent with disciplinary norms and integrity aims:</p>
-          <ul style="margin-left:1.2rem; line-height:1.9;">
-            <li>Interactive simulation, scenario role‑play, viva voce, in‑person interview, or defence of an artefact.</li>
-            <li>Schedule across the cohort (may span multiple days); design open‑ended prompts to limit advantages from prior sharing.</li>
-            <li>Recordings or co‑assessment by two markers improve reliability for performance/presentation components.</li>
-          </ul>
-        </div>
-      </details>
+<p>● Interactive simulation, scenario role‑play, viva voce, in‑person interview, or defence of an artefact.</p>
+<p>● Schedule across the cohort (may span multiple days); design open‑ended prompts to limit advantages from prior sharing.</p>
+<p>● Recordings or co‑assessment by two markers improve reliability for performance/presentation components.</p>
+               
+              </div>
+            </details>
+          
 
-      <details class="ap-accordion">
-        <summary>Fairness & inclusion</summary>
-        <div class="accordion-body">
-          <ul style="margin-left:1.2rem; line-height:1.9;">
-            <li>Publish criteria/standards early (by end of Week 1) and use student‑friendly descriptions of tasks/requirements.</li>
-            <li>Use varied prompt types to elicit evidence from diverse communicative styles; avoid leading or overly probing questions that threaten validity.</li>
-            <li>Permit extensions and reasonable adjustments via school/faculty processes where appropriate.</li>
-          </ul>
-        </div>
-      </details>
+          <!-- 3 -->
+         
+            <details id="ap-3" class="ap-accordion">
+              <summary>Fairness &amp; inclusion</summary>
+              <div class="ap-panel">
+ <p>● Publish criteria/standards early (by end of Week 1) and use student‑friendly descriptions of tasks/requirements.</p>
+<p>● Use varied prompt types to elicit evidence from diverse communicative styles; avoid leading or overly probing questions that threaten validity.</p>
+<p>● Permit extensions and reasonable adjustments via school/faculty processes where appropriate.</p>
+               
+              </div>
+            </details>
+         
+        
+      
+		  
+		  <!-- ===== Assessment Principles (Stacked full-width, numbered circles, back-to-top) ===== -->
+          <!-- Scoped styles for numbered circles and stacked layout -->
+      <style>
+        /* ===== Stacked full-width list with visible purple number circles ===== */
+        ol.ap-ol { list-style: none; padding: 0; margin: 0; counter-reset: ap-counter; }
+        ol.ap-ol > li {
+          counter-increment: ap-counter;
+          display: grid;
+          grid-template-columns: 40px 1fr; /* number circle + card */
+          gap: 12px;
+          align-items: start;
+          margin-bottom: 1.25rem;
+          width: 100%;
+        }
+
+        /* Purple circular number badge */
+        ol.ap-ol > li::before {
+          content: counter(ap-counter);
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          border-radius: 50%;
+          background: var(--uq-purple);
+          color: var(--uq-white);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 700;
+          line-height: 1;
+          margin-top: 4px; /* aligns top with card header */
+          box-shadow: 0 2px 6px rgba(81,36,122,.18);
+        }
+
+        details.ap-accordion {
+          width: 100%;
+          border: 1px solid var(--bel-divider);
+          border-radius: 12px;
+          background: #fff;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+        }
+        details.ap-accordion > summary {
+          padding: 14px 18px;
+          font-weight: 700;
+          background: var(--uq-cloud);
+          color: var(--uq-purple);
+          cursor: pointer;
+          border-radius: 12px;
+          list-style: none;
+        }
+        details.ap-accordion[open] > summary {
+          border-bottom: 1px solid var(--bel-divider);
+          border-radius: 12px 12px 0 0;
+        }
+        .ap-panel { padding: 1rem 1.2rem; overflow-x: auto; }
+        .ap-panel table { width: 100%; border-collapse: collapse; min-width: 520px; }
+        .ap-panel th, .ap-panel td { border: 1px solid #ddd; padding: 10px; vertical-align: top; text-align: left; }
+        .uq-header { background: #4B2577; color: #fff; font-weight: 700; }
+
+</style>
+        
+            
+          </li>
+
+          
+         
+	
     </section>
+	  
 
     <!-- Semi-structured questions -->
     <section class="section" aria-labelledby="questions-title">
@@ -309,51 +603,62 @@
   <li>Avoid closed questions: this impedes the flow of conversation and interactivity that is core to an interactive
       oral assessment piece.</li>
 </ul>
-      </div>	
-    <div class="two-col">
-    <div class="highlight-box" style="margin:0">
-      <h3 style="font-family:'Crimson Pro',serif; color:var(--uq-purple); margin-bottom:.4rem;">Encouragement & Elaboration</h3>
-      <ul style="margin-left:1.2rem; line-height:1.9;">
-        <li>“Tell me more about that… What happened then?”</li>
-        <li>“That’s interesting — can you expand on … ?”</li>
-        <li>“What led you to that recommendation?”</li>
-      </ul>
-      <span class="tag new">Prompt Library</span>
-    </div>
+      </div>
+		<div style="background: white; padding: 1.5rem; border-radius: 12px;">
+        
+          <!-- 1 -->
+          
+            <details id="ap-1" class="ap-accordion">
+              <summary>Encouragement &amp; Elaboration</summary>
+              <div class="ap-panel">
+                
+ <p>● “Tell me more about that… What happened then?”</p>
+ <p>● “That’s interesting — can you expand on … ?”</p>
+ <p>● “What led you to that recommendation?”</p>                
+              </div>
+            </details>
+          
 
-    <div class="highlight-box" style="margin:0">
-      <h3 style="font-family:'Crimson Pro',serif; color:var(--uq-purple); margin-bottom:.4rem;">Synthesis & Clarification</h3>
-      <ul style="margin-left:1.2rem; line-height:1.9;">
-        <li>“How do these perspectives fit together?”</li>
-        <li>“What does this suggest about the broader issue?”</li>
-        <li>“You mentioned X — who was involved at that time?”</li>
-      </ul>
-    </div>
-    </div>
+          <!-- 2 -->
+          
+            <details id="ap-2" class="ap-accordion">
+              <summary>Synthesis &amp; Clarification</summary>
+              <div class="ap-panel">                   
 
-      <details class="ap-accordion" open>
-        <summary>Further testing & counter‑arguments</summary>
-        <div class="accordion-body">
-          <ul style="margin-left:1.2rem; line-height:1.9;">
-            <li>“If X were the case instead, how would you change your design?”</li>
-            <li>“In coming to your recommendation, did you consider … ?”</li>
-            <li>“What are other plausible views on that?”</li>
-          </ul>
-        </div>
-      </details>
+<p>● “How do these perspectives fit together?”</p>
+<p>● “What does this suggest about the broader issue?”</p>
+<p>● “You mentioned X — who was involved at that time?”</p>
+               
+              </div>
+            </details>
+          
 
-      <details class="ap-accordion">
-        <summary>Critical thinking dimensions</summary>
-        <div class="accordion-body">
-          <ul style="margin-left:1.2rem; line-height:1.9;">
-            <li><strong>Clarity:</strong> “Could you give an example suitable for a public audience?”</li>
-            <li><strong>Accuracy:</strong> “How do you support these claims?”</li>
-            <li><strong>Precision:</strong> “Can you restate that with the appropriate technical terms?”</li>
-            <li><strong>Breadth & Depth:</strong> “What other perspectives did you consider? Why choose this approach?”</li>
-            <li><strong>Coherence & Cogency:</strong> “I noticed a tension between A and B — how do they fit? Walk me through your logic.”</li>
-          </ul>
-        </div>
-      </details>
+          <!-- 3 -->
+         
+            <details id="ap-3" class="ap-accordion">
+              <summary>Further testing &amp; counter‑arguments</summary>
+              <div class="ap-panel">
+ <p>● “If X were the case instead, how would you change your design?”</p>
+<p>● “In coming to your recommendation, did you consider … ?”</p>
+<p>● “What are other plausible views on that?”</p>
+               
+              </div>
+            </details>
+         <details id="ap-4" class="ap-accordion">
+              <summary>Critical thinking dimensions</summary>
+              <div class="ap-panel">
+ <p>● <strong>Clarity:</strong> “Could you give an example suitable for a public audience?”</p>
+<p>● <strong>Accuracy:</strong> “How do you support these claims?”</p>
+<p>● <strong>Precision:</strong> “Can you restate that with the appropriate technical terms?”</p>
+<p>● <strong>Breadth &amp; Depth:</strong> “What other perspectives did you consider? Why choose this approach?”</p>
+<p>● <strong>Coherence &amp; Cogency:</strong> “I noticed a tension between A and B — how do they fit? Walk me through your logic.”</p>
+              </div>
+            </details>
+    
+
+      
+		
+            
     </section>
 
     <!-- Example rubric-aligned table -->
@@ -438,48 +743,49 @@
         <span class="section-icon">&nbsp;</span>
         <div>
           <h2 id="security-title" class="section-title">Acknowledgements</h2>
-          <p class="section-subtitle">&nbsp;</p>
+          
         </div>
     </div>
 <!-- Acknowledgements -->
       
   <div>
-    <h3 style="font-family:'Crimson Pro',serif; color:var(--uq-purple); margin-bottom:.5rem;">Special Thanks</h3>
+    <h2 style="font-family:'Crimson Pro',serif; color:var(--uq-purple); margin-bottom:.5rem;">Special Thanks</h2>
           
-    <strong> EAIT Faculty Learning Enhancement Team </strong>
-            <h3 style="font-family:'Crimson Pro',serif; color:var(--uq-purple); margin-bottom:.5rem;">Scholarly references</h3>
+    <h3><strong> EAIT Faculty Learning Enhancement Team </strong></h3>
+            <h2 style="font-family:'Crimson Pro',serif; color:var(--uq-purple); margin-bottom:.5rem;">Scholarly references</h2>
 <ol>
-      <li> Charles Sturt University, Division of Learning and Teaching. <a href="https://www.csu.edu.au/division/learning-teaching/assessments/assessment-types/interactive-oral-assessment">Interactive Oral Assessment</a>.&nbsp;</li>
-      <li>Dublin City University, Teaching Enhancement Unit. <a href="https://www.dcu.ie/teu/interactive-oral-assessment">Interactive Oral Assessment</a>.&nbsp;</li>
-      <li>Griffith University. Developed by Danielle Logan- Fleming, Assoc. Prof. Popi Sotiriadou, Dr Amanda Daly and Prof. Ross Guest. (Last updated September, 2024). <a href="https://sway.cloud.microsoft/yQ2s0Bm3ILkWtGll?ref=Link">Interactive Oral Assessment: An authentic and integral alternative to examination</a>.&nbsp;</li>
-      <li>The University of Melbourne, Centre for the Study of Higher Education. Developed by Dr Tracii Ryan, Professor Chris Ziguras &amp; Professor Raoul Mulder. (Last updated July 2025). <a href="https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/interactive-oral-assessments">Interactive Oral Assessments</a>.&nbsp;</li>
+      <li> Charles Sturt University, Division of Learning and Teaching. <a href="https://www.csu.edu.au/division/learning-teaching/assessments/assessment-types/interactive-oral-assessment" target="_blank">Interactive Oral Assessment</a>.&nbsp;</li>
+      <li>Dublin City University, Teaching Enhancement Unit. <a href="https://www.dcu.ie/teu/interactive-oral-assessment" target="_blank">Interactive Oral Assessment</a>.&nbsp;</li>
+      <li>Griffith University. Developed by Danielle Logan- Fleming, Assoc. Prof. Popi Sotiriadou, Dr Amanda Daly and Prof. Ross Guest. (Last updated September, 2024). <a href="https://sway.cloud.microsoft/yQ2s0Bm3ILkWtGll?ref=Link" target="_blank">Interactive Oral Assessment: An authentic and integral alternative to examination</a>.&nbsp;</li>
+      <li>The University of Melbourne, Centre for the Study of Higher Education. Developed by Dr Tracii Ryan, Professor Chris Ziguras &amp; Professor Raoul Mulder. (Last updated July 2025). <a href="https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/interactive-oral-assessments" target="_blank">Interactive Oral Assessments</a>.&nbsp;</li>
       <li>Given, L. M. (2008). Probes and Probing. In The SAGE Encyclopedia of Qualitative Research Methods (Vol. 2, pp. 681–683). SAGE Publications, Inc. <a href="https://doi.org/10.4135/9781412963909.n340">https://doi.org/10.4135/9781412963909.n340</a>&nbsp;</li>
-      <li>Given, L. M. (2008). Semi-Structured Interview. In The SAGE Encyclopedia of Qualitative Research Methods (Vol. 2, pp. 810–811). SAGE Publications, Inc. <a href="https://doi.org/10.4135/9781412963909.n420">https://doi.org/10.4135/9781412963909.n420</a>&nbsp;</li>
-      <li>Kallio, H., Pietilä, A.-M., Johnson, M., &amp; Kangasniemi, M. (2016). Systematic methodological review: developing a framework for a qualitative semi-structured interview guide. Journal of Advanced Nursing, 72(12), 2954–2965. <a href="https://doi.org/10.1111/jan.13031">https://doi.org/10.1111/jan.13031</a>&nbsp;</li>
-      <li>Sotiriadou, P., Logan, D., Daly, A., &amp; Guest, R. (2020). The role of authentic assessment to preserve academic integrity and promote skill development and employability. Studies in Higher Education (Dorchester-on-Thames), 45(11), 2132–2148. <a href="https://doi.org/10.1080/03075079.2019.1582015">https://doi.org/10.1080/03075079.2019.1582015</a>&nbsp;</li>
+      <li>Given, L. M. (2008). Semi-Structured Interview. In The SAGE Encyclopedia of Qualitative Research Methods (Vol. 2, pp. 810–811). SAGE Publications, Inc. <a href="https://doi.org/10.4135/9781412963909.n420" target="_blank">https://doi.org/10.4135/9781412963909.n420</a>&nbsp;</li>
+      <li>Kallio, H., Pietilä, A.-M., Johnson, M., &amp; Kangasniemi, M. (2016). Systematic methodological review: developing a framework for a qualitative semi-structured interview guide. Journal of Advanced Nursing, 72(12), 2954–2965. <a href="https://doi.org/10.1111/jan.13031" target="_blank">https://doi.org/10.1111/jan.13031</a>&nbsp;</li>
+      <li>Sotiriadou, P., Logan, D., Daly, A., &amp; Guest, R. (2020). The role of authentic assessment to preserve academic integrity and promote skill development and employability. Studies in Higher Education (Dorchester-on-Thames), 45(11), 2132–2148. <a href="https://doi.org/10.1080/03075079.2019.1582015" target="_blank">https://doi.org/10.1080/03075079.2019.1582015</a>&nbsp;</li>
     </ol>
     </div>
         
-      </div>
+      
 </section>
     <!-- Contact / Support -->
-    <section id="support" class="section" style="background:var(--hero-bg); color:#fff;">
-      <div class="section-header" style="border-color:rgba(255,255,255,.25)">
-        <span class="section-icon">✉️</span>
-        <div>
-          <h2 class="section-title" style="color:#fff">Get Support</h2>
-          <p class="section-subtitle" style="color:#fff; opacity:.9">BEL Education Team — <a style="color:#FDB71A" href="mailto:education@bel.uq.edu.au">education@bel.uq.edu.au</a></p>
-        </div>
-      </div>
-      <p style="opacity:.95">Need help tailoring IOAs, drafting prompts, or mapping criteria? Get in touch.</p>
-      <div style="margin-top:.6rem">
-        <span class="tag">Consultation</span>
-        <span class="tag new">Assessment Transformation</span>
-      </div>
+    <section id="support" class="contact-section">
+  <h2>Get Support &amp; Stay Connected</h2>
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid rgba(255,255,255,0.2);">
+    <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Assessment  Support</h3>
+    <p style="margin-bottom: 1rem; opacity: .95;">Need help designing Interactive Oral Assessmen        ? Connect with a   Learning Designer.</p>
+    <div class="resource-links" style="margin-top: 1rem;">
+      <a href="mailto:chloe.salisbury@uq.edu.au" class="resource-link" >
+        <span>💡</span> Dr Chloe Salisbury
+      </a>
+    </div>
+  </div>
+  <div class="contact-grid"></div>
+</section>
+</div>
     </section>
 
     <div style="text-align:center; color:var(--uq-stone); font-size:.92rem; margin:2rem 0 .5rem; font-style:italic;">
-      Last updated: 7 February 2026
+      Last updated: 11 February 2026
     </div>
 </div>
 
